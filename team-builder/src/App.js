@@ -15,6 +15,7 @@ function App() {
     role: "",
     email: ""
   });
+  const [memberToEdit, setMemberToEdit] = useState('')
 
   const onInputChange = event => {
     const inputChanged = event.target.name;
@@ -34,11 +35,16 @@ function App() {
       id: uuid(),
       name: formValues.name,
       email: formValues.email,
-      role: formValues.lname
+      role: formValues.role
     };
-    setTeamMembers([...teamMembers, newMember]); // WE NEED TO PASS AN ENTIRE ARRAY
-    // setFriends(friends.concat(newFriend))
+    setTeamMembers([...teamMembers, newMember]); 
+    setFormValues({name: '', email: '', role: ''});
   };
+
+  const editMember = event => {
+    setMemberToEdit(event.target.name);
+    return console.log(memberToEdit);
+  }
 
   return (
     <div className="App">
@@ -46,12 +52,15 @@ function App() {
         onInputChange={onInputChange}
         formValues={formValues}
         onFormSubmit={onFormSubmit}
+        teamMembers={teamMembers}
+        memberToEdit={memberToEdit}
       />
 
       <h1>Team Members: </h1>
       {teamMembers.map(mem => (
         <div key={mem.id}>
-          {mem.name} {mem.email} {mem.role}
+          Name: {mem.name} | Email: {mem.email} | Role: {mem.role}
+          <button onClick={editMember}>Edit</button>
         </div>
       ))}
     </div>

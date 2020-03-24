@@ -246,7 +246,7 @@
 - Controlled inputs to manage form data
 
   - we're adding a `value=` attribute to our input field and setting it equal to someethign dynamic (i.e. not hard-coding it)
-  - This way React notices the state is changing as the user types and can render the user input or in our case will repopulate the fields with empty string when the user clicks cubmit
+  - This way React notices the state is changing as the user types and can render the user input or in our case will repopulate the fields with empty string when the user clicks submit
   - Example:
 
     ```
