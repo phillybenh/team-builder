@@ -2,6 +2,7 @@ import React from 'react';
 
 
 export default function Form (props) {
+     console.log(props.memberToEdit);
 
     return (
       <form onSubmit={props.onFormSubmit}>

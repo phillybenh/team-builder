@@ -5,7 +5,18 @@ import Form from "./Components/Form";
 import "./App.css";
 
 const initialTeam = [
-  { id: uuid(), name: "Ben Haus", email: "ben@little-haus.com", role: "Web Developer" }
+  {
+    id: uuid(),
+    name: "Ben Haus",
+    email: "ben@little-haus.com",
+    role: "Web Developer"
+  },
+  {
+    id: uuid(),
+    name: "Bob Heyburn",
+    email: "bob@navy.mil",
+    role: "Engineer"
+  }
 ];
 
 function App() {
@@ -42,8 +53,7 @@ function App() {
   };
 
   const editMember = event => {
-    setMemberToEdit(event.target.name);
-    return console.log(memberToEdit);
+    setMemberToEdit(event.target);
   }
 
   return (
@@ -60,7 +70,7 @@ function App() {
       {teamMembers.map(mem => (
         <div key={mem.id}>
           Name: {mem.name} | Email: {mem.email} | Role: {mem.role}
-          <button onClick={editMember}>Edit</button>
+          <button name="edit" value={mem.name} onClick={editMember}>Edit</button>
         </div>
       ))}
     </div>
